@@ -1,0 +1,658 @@
+<style></style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-tech | Advanced UAV Design & Engineering Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a0e17',
+                        secondary: '#1a1f2e',
+                        accent: '#3b82f6',
+                        'accent-dark': '#2563eb',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0e17;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(10, 14, 23, 0.7), rgba(10, 14, 23, 1)), 
+                        url('bg1.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .tech-item {
+            background: rgba(26, 31, 46, 0.8);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .tech-item:hover {
+            border-color: rgba(59, 130, 246, 0.8);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-primary bg-opacity-90 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4">
+            <a href="/" class="flex items-center">
+                <img src="logo3.png" alt="F-tech Logo" class="h-30 md:h-20 w-auto">
+            </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-sm font-medium text-gray-200 hover:text-white">ABOUT</a>
+                    <a href="#capabilities" class="nav-link text-sm font-medium text-gray-200 hover:text-white">CAPABILITIES</a>
+                    <a href="#solutions" class="nav-link text-sm font-medium text-gray-200 hover:text-white">SOLUTIONS</a>
+                    <a href="#careers" class="nav-link text-sm font-medium text-gray-200 hover:text-white">CAREERS</a>
+                    <a href="#contact" class="ml-4 px-5 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-dark rounded-md transition-colors">CONTACT</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#about" class="text-sm font-medium text-gray-200 hover:text-white">ABOUT</a>
+                    <a href="#capabilities" class="text-sm font-medium text-gray-200 hover:text-white">CAPABILITIES</a>
+                    <a href="#solutions" class="text-sm font-medium text-gray-200 hover:text-white">SOLUTIONS</a>
+                    <a href="#careers" class="text-sm font-medium text-gray-200 hover:text-white">CAREERS</a>
+                    <a href="#contact" class="px-5 py-2 text-sm font-medium text-white bg-accent hover:bg-accent-dark rounded-md transition-colors inline-block w-full text-center">CONTACT</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-24 md:py-32">
+            <div class="max-w-4xl">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                    UAV Design & Engineering Solutions
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl">
+                    Combining deep expertise in complex engineering disciplines with innovative tools to accelerate your defense projects.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#solutions" class="px-8 py-3 bg-accent hover:bg-accent-dark text-white font-medium rounded-md transition-colors text-center">
+                        Explore Solutions
+                    </a>
+                    <a href="#contact" class="px-8 py-3 bg-transparent border border-white hover:bg-white hover:text-primary text-white font-medium rounded-md transition-colors text-center">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-20 bg-black overflow-hidden">
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="splitedvideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+
+        <!-- Optional dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-70 z-10"></div>
+    
+        <!-- Section content -->
+        <div class="relative z-20 container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Advancing Defense Technology</h2>
+                    <p class="text-gray-300 mb-6">
+                        F-tech is at the forefront of UAV design and custom engineering solutions for defense applications.
+                        We combine deep expertise in complex engineering disciplines with innovative tools and processes to
+                        enable our customers to accelerate their projects.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        Our team of experts works closely with defense contractors and military organizations to develop
+                        cutting-edge unmanned aerial vehicles that meet the demanding requirements of modern warfare and
+                        surveillance operations.
+                    </p>
+                    <a href="#capabilities" class="inline-flex items-center text-accent hover:text-accent-dark font-medium">
+                        Learn more about our capabilities
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+                </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section id="capabilities" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Specialized Capabilities</h2>
+                <p class="text-gray-300 max-w-3xl mx-auto">
+                    F-tech delivers comprehensive engineering solutions across multiple disciplines, enabling our clients to achieve technological superiority in defense applications.
+                </p>
+            </div>
+            
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">UAV Design</h3>
+                    <p class="text-gray-300">
+                        Design of various UAV platforms including Fixed Wing, VTOL, and specialized FPV drone systems for diverse mission requirements.
+                    </p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Avionics Systems</h3>
+                    <p class="text-gray-300">
+                        Avionics integration, flight control systems, and sensor fusion technologies for enhanced mission capabilities.
+                    </p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Flight Sciences</h3>
+                    <p class="text-gray-300">
+                        Comprehensive aerodynamic analysis, flight performance optimization, and flight testing for maximum operational efficiency.
+                    </p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Load & Aeroelastics</h3>
+                    <p class="text-gray-300">
+                        Structural load analysis, aeroelastic modeling, and flutter prediction to ensure platform integrity under all flight conditions.
+                    </p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Structural Analysis</h3>
+                    <p class="text-gray-300">
+                        Advanced FEA modeling, composite structure design, and structural optimization for lightweight yet robust airframes.
+                    </p>
+                </div>
+                
+                <div class="tech-item">
+                    <div class="mb-4">
+                        <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Aerospace Procurement</h3>
+                    <p class="text-gray-300">
+                        Strategic sourcing of specialized aerospace components, supply chain management, and vendor qualification for defense projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our UAV Solutions</h2>
+                <p class="text-gray-300 max-w-3xl mx-auto">
+                    F-tech designs and develops cutting-edge unmanned aerial systems tailored to meet specific mission requirements.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card bg-primary p-6 rounded-lg border border-gray-800">
+                    <div class="h-48 mb-6 overflow-hidden rounded-md bg-secondary flex items-center justify-center">
+                        <img src="img1.png" alt="icon" class="w-50 h-50 mr-2 mt-16">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fixed Wing UAVs</h3>
+                    <p class="text-gray-300 mb-4">
+                        Long-endurance platforms designed for extended surveillance, reconnaissance, and data collection missions.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Extended flight time (12+ hours)
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            High-altitude operations
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Advanced sensor integration
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-accent hover:text-accent-dark font-medium">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="card bg-primary p-6 rounded-lg border border-gray-800">
+                    <div class="h-48 mb-6 overflow-hidden rounded-md bg-secondary flex items-center justify-center">
+                        <img src="img2.png" alt="icon" class="w-50 h-50 mr-2 mt-8">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">VTOL Systems</h3>
+                    <p class="text-gray-300 mb-4">
+                        Versatile platforms combining the benefits of rotary and fixed-wing flight for flexible deployment scenarios.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            No runway requirements
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Transition flight capability
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Compact deployment footprint
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-flex items-center text-accent hover:text-accent-dark font-medium">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+                
+                <div class="card bg-primary p-6 rounded-lg border border-gray-800">
+                    <div class="h-48 mb-6 overflow-hidden rounded-md bg-secondary flex items-center justify-center">
+                        <img src="img3.png" alt="icon" class="w-45 h-45 mr-2 mt-1">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">FPV Drones</h3>
+                    <p class="text-gray-300 mb-4">
+                        High-performance drones engineered for immersive first-person piloting, ideal for tactical missions, reconnaissance, and racing applications.
+                    </p>
+                    <ul class="text-gray-400 mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Low-latency HD video transmission via fiber-optic
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Modular and customizable payloads
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-accent mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Agile maneuverability in complex environments
+                        </li>
+                    </ul>                    
+                    <a href="#contact" class="inline-flex items-center text-accent hover:text-accent-dark font-medium">
+                        Learn more
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-accent">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Accelerate Your Defense Projects?</h2>
+            <p class="text-xl text-white opacity-90 mb-10 max-w-3xl mx-auto">
+                Partner with F-tech to leverage our expertise in UAV design and engineering solutions for your next mission-critical project.
+            </p>
+            <a href="#contact" class="px-8 py-3 bg-white text-accent hover:bg-opacity-90 font-medium rounded-md transition-colors inline-block">
+                Contact Our Team
+            </a>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Join Our Team</h2>
+                    <p class="text-gray-300 mb-6">
+                        We’re not driven by org charts — we’re driven by people.
+                        If you’re passionate about what you do and motivated to make a real impact, we want to hear from you. We look for individuals who bring both depth and versatility — specialists with a broad curiosity and a drive to push boundaries. Experience matters, but what matters more is your initiative, your mindset, and your willingness to grow. If you're serious about contributing to meaningful work, get in touch.                    </p>    
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <svg class="w-full h-auto" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Team illustration -->
+                            <rect x="100" y="100" width="400" height="200" rx="10" fill="#1a1f2e" stroke="#3b82f6" stroke-width="2" />
+                            <circle cx="200" cy="150" r="30" fill="#3b82f6" opacity="0.8" />
+                            <circle cx="300" cy="150" r="30" fill="#3b82f6" opacity="0.6" />
+                            <circle cx="400" cy="150" r="30" fill="#3b82f6" opacity="0.4" />
+                            <rect x="170" y="200" width="60" height="10" rx="5" fill="#3b82f6" opacity="0.8" />
+                            <rect x="270" y="200" width="60" height="10" rx="5" fill="#3b82f6" opacity="0.6" />
+                            <rect x="370" y="200" width="60" height="10" rx="5" fill="#3b82f6" opacity="0.4" />
+                            <rect x="170" y="220" width="60" height="5" rx="2.5" fill="white" opacity="0.5" />
+                            <rect x="270" y="220" width="60" height="5" rx="2.5" fill="white" opacity="0.5" />
+                            <rect x="370" y="220" width="60" height="5" rx="2.5" fill="white" opacity="0.5" />
+                            <rect x="170" y="230" width="40" height="5" rx="2.5" fill="white" opacity="0.3" />
+                            <rect x="270" y="230" width="40" height="5" rx="2.5" fill="white" opacity="0.3" />
+                            <rect x="370" y="230" width="40" height="5" rx="2.5" fill="white" opacity="0.3" />
+                            
+                            <!-- Grid lines -->
+                            <path d="M100 300 H500" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.2" />
+                            <path d="M100 350 H500" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.2" />
+                            <path d="M150 300 V400" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.2" />
+                            <path d="M250 300 V400" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.2" />
+                            <path d="M350 300 V400" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.2" />
+                            <path d="M450 300 V400" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.2" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-gray-300 max-w-3xl mx-auto">
+                    Ready to discuss your project requirements? Our team of experts is ready to help you accelerate your defense technology initiatives.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-white">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-white">
+                    </div>
+                    
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company</label>
+                        <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-white">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-white">
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-white">
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 bg-primary border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-white"></textarea>
+                    </div>
+                    
+                    <div class="md:col-span-2">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="terms" name="terms" type="checkbox" class="h-4 w-4 text-accent focus:ring-accent border-gray-700 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms" class="text-gray-300">I agree to the <a href="#" class="text-accent hover:text-accent-dark">Privacy Policy</a> and <a href="#" class="text-accent hover:text-accent-dark">Terms of Service</a></label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 text-center">
+                        <button type="submit" class="px-8 py-3 bg-accent hover:bg-accent-dark text-white font-medium rounded-md transition-colors">
+                            Submit Inquiry
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-accent bg-opacity-20 text-accent mb-4">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium mb-2">Phone</h3>
+                        <p class="text-gray-300">+1 (555) 123-4567</p>
+                    </div>
+                    
+                    <div>
+                        <div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-accent bg-opacity-20 text-accent mb-4">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium mb-2">Email</h3>
+                        <p class="text-gray-300">info@f-tech.com</p>
+                    </div>
+                    
+                    <div>
+                        <div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-accent bg-opacity-20 text-accent mb-4">
+                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-medium mb-2">Location</h3>
+                        <p class="text-gray-300">1234 Defense Tech Blvd<br>Innovation City, CA 90210</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center">
+                        <!-- Logo placeholder -->
+                        <img
+                        src="logo3.png"
+                        alt="F-tech Logo"
+                        class="h-20 w-auto"
+                      />                      
+                    </div>
+                    <p class="text-gray-400 mt-2 max-w-md">
+                        UAV design and engineering solutions for defense applications.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div>
+                        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Solutions</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Fixed Wing UAVs</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">VTOL Systems</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FOV Specialized UAVs</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Custom Engineering</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                            <li><a href="#careers" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">News</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Legal</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Security</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Compliance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 F-tech. All rights reserved.
+                </p>
+                
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.059 10.059 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <span class="sr-only">YouTube</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Form submission (demo only)
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('This is a demo form. In a real implementation, this would submit your inquiry to F-tech.');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'937e14caf2fad2a3',t:'MTc0NTkyMjE3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
